@@ -25,4 +25,4 @@ internal/test/test.go:4:2: cannot find package "github.com/jinzhu/gorm" in any o
 make: *** [build] Error 1
 ```
 
-The version in the [working](https://github.com/colabobio/go-mod-test/tree/working) branch does work, where the external dependency github.com/jinzhu/gorm is moved from the intenal module test to main.go
+The version in the [working](https://github.com/colabobio/go-mod-test/tree/working) branch does work (with GO111MODULE=auto/on, setting to off gives the same error as above). In this branch, the external dependency github.com/jinzhu/gorm was moved from the intenal module test to main.go. 
