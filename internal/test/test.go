@@ -9,6 +9,6 @@ import (
 func Hello() {
 	genCode, err := uuid.NewRandom()
 	if err == nil {
-		fmt.Println("Hello from Foo ", genCode.String())
+		fmt.Println("Hello from Foo", genCode.String())
 	}
 }
