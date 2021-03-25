@@ -1,11 +1,14 @@
 package test
 
 import (
-	"github.com/jinzhu/gorm"
+	"fmt"
+
+	"github.com/google/uuid"
 )
 
-var db *gorm.DB
-
-func GetDB() *gorm.DB {
-	return db
+func Hello() {
+	genCode, err := uuid.NewRandom()
+	if err == nil {
+		fmt.Println("Hello from Foo ", genCode.String())
+	}
 }
