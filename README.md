@@ -1,6 +1,6 @@
 # Test for dependencies in internal modules in go
 
-The code in the main branch does not build. Tested with go 1.15.8 and 1.16.2 on Mac.
+The code in the main branch does not build. Tested with go 1.15.8 and 1.16.2 on macOS Catalina 10.15.7.
 
 The steps are:
 
