@@ -1,28 +1,21 @@
-# Test for dependencies in internal modules in go
+# Using external imports in nested internal modules
 
-The code in the main branch does not build. Tested with go 1.15.8 and 1.16.2 on macOS Catalina 10.15.7.
+This repo shows a demo [Go](https://golang.org/) project that has one nested internal module that in turns imports one external module.
 
-The steps are:
+Based on this other example:
+
+https://github.com/vlad-bezden/gonestedmodules
+
+To use:
 
 * Run ```install_dependencies.sh``` script first
-* Run ```make```
+* Run ```make``` to build
+* Run ```main``` to execute binary
 
-Tested with GOPATH variable set and unset, and go env -w GO111MODULE= to auto/on/off. It does not build in any setting with the following error:
+Tested with go 1.15 and 1.16 on macOS Catalina 10.15.7.
 
-```
-go build main.go
-internal/test/test.go:4:2: cannot find package
-make: *** [build] Error 1
-```
+## Notes:
 
-when using GO111MODULE=auto/on. If setting to off, then the error is different:
-
-```
-go build main.go
-internal/test/test.go:4:2: cannot find package "github.com/jinzhu/gorm" in any of:
-	/usr/local/go/src/github.com/jinzhu/gorm (from $GOROOT)
-	/Users/andres/go/src/github.com/jinzhu/gorm (from $GOPATH)
-make: *** [build] Error 1
-```
-
-The version in the [working](https://github.com/colabobio/go-mod-test/tree/working) branch does work (with GO111MODULE=auto/on, setting to off gives the same error as above). In this branch, the external dependency github.com/jinzhu/gorm was moved from the intenal module test to main.go. 
+* It does not require setting the GOPATH variable set and unset
+* Make sure that go's GO111MODULE environmental variable is set to either to auto or on (not off):
+```go env -w GO111MODULE=auto```
